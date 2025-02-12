@@ -3,18 +3,6 @@ import card_2 from '../images/card_2.jpg';
 import card_3 from '../images/card_3.jpg';
 
 const initialCards = [
-    { 
-      name: 'Замок', 
-      link: card_1, 
-    },
-    { 
-      name: 'Поле', 
-      link: card_2,
-    },
-    { 
-      name: 'Горы', 
-      link: card_3,
-    },
     {
       name: "Архыз",
       link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
