@@ -29,6 +29,7 @@ function createCard(element, { deleteCard, likeCard, openImagePopup }) {
     // Присвоены данные карточкам:
 
     cardImage.src = element.link;
+    cardImage.alt = element.name;
     cardTitle.textContent = element.name;
 
     // Добавлен слушатель для лайка карточки:

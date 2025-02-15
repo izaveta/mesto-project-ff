@@ -1,7 +1,3 @@
-import card_1 from '../images/card_1.jpg';
-import card_2 from '../images/card_2.jpg';
-import card_3 from '../images/card_3.jpg';
-
 const initialCards = [
     {
       name: "Архыз",
