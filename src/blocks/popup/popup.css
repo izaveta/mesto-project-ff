@@ -7,6 +7,7 @@
 @import url('./__button/popup__button.css');
 @import url('./__caption/popup__caption.css');
 @import url('./__image/popup__image.css');
+@import url('./_is-opened/popup_is-opened.css');
 
 .popup {
   font-family: 'Inter', Arial, sans-serif;
@@ -20,4 +21,9 @@
   bottom: 0;
   right: 0;
   z-index: 10;
+}
+
+.popup__error_visible {
+  font-size: 12px;
+  color: red;
 }

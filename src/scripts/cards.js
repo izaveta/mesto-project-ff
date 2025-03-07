@@ -1,28 +1,33 @@
-const initialCards = [
+import card1Image from '../images/smth/card_1.jpg';
+import card2Image from '../images/smth/card_2.jpg';
+import card3Image from '../images/smth/card_3.jpg';
+import card4Image from '../images/smth/card_4.jpg';
+import card5Image from '../images/smth/card_5.jpg';
+import card6Image from '../images/smth/card_6.jpg';
+
+export default [
     {
-      name: "Архыз",
-      link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
+        name: "Русская голубая кошка",
+        link: card1Image,
     },
     {
-      name: "Челябинская область",
-      link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
+        name: "Самолет в небе",
+        link: card2Image,
     },
     {
-      name: "Иваново",
-      link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
+        name: "Морская пена",
+        link: card3Image,
     },
     {
-      name: "Камчатка",
-      link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
+        name: "Алый закат",
+        link: card4Image,
     },
     {
-      name: "Холмогорский район",
-      link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
+        name: "Йога на закате",
+        link: card5Image,
     },
     {
-      name: "Байкал",
-      link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
+        name: "Розово-белые лепестки",
+        link: card6Image,
     }
 ];
-
-export {initialCards}
