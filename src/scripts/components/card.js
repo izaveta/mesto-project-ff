@@ -1,6 +1,6 @@
 import { likeCards, unlikeCards, deleteCards } from '../components/api.js';
 
-// Функция лайка:
+// Like function:
 
 function likeClick(cardId, likeButton, likeCount) {
     if (likeButton.classList.contains('card__like-button_is-active')) {
@@ -20,7 +20,7 @@ function likeClick(cardId, likeButton, likeCount) {
     }
   };
 
-// Функция удаления карточки:
+// Delete function:
 
 function deleteCard(cardId, cardElement) {
     deleteCards(cardId)
@@ -29,10 +29,10 @@ function deleteCard(cardId, cardElement) {
     })
     .catch((err) => console.error(`Ошибка при удалении карточки: ${err}`));
 };
-// Функция создания карточки:
+
+// Card creation function:
 
 function createCard(cardData, userId, { deleteCard, likeClick, openImagePopup }) {
-    // Объявлены переменные:
 
     const cardTemplate = document.querySelector("#card-template").content;
     const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
@@ -42,26 +42,18 @@ function createCard(cardData, userId, { deleteCard, likeClick, openImagePopup })
     const deleteButton = cardElement.querySelector('.card__delete-button');
     const likeCount = cardElement.querySelector('.card__like-count');
 
-    // Присвоены данные карточкам:
-
 cardImage.src = cardData.link;
 cardImage.alt = cardData.name;
 cardTitle.textContent = cardData.name;
 likeCount.textContent = cardData.likes.length;
 
-// Функция лайка карточки:
-
 likeButton.addEventListener('click', () => {
     likeClick(cardData._id, likeButton, likeCount);
   });
 
-  // Проверяем, лайкнул ли пользователь карточку:
-
   if (cardData.likes.some((user) => user._id === userId)) {
     likeButton.classList.add('card__like-button_is-active');
   }
-
-  // Удаление карточки:
 
   if (cardData.owner._id === userId) {
     deleteButton.addEventListener("click", () => {
@@ -71,10 +63,8 @@ likeButton.addEventListener('click', () => {
     deleteButton.remove();
   }
 
-  // Открытие попапа с картинкой:
-
   cardImage.addEventListener('click', () => {
-    openImagePopup(cardData); // Вызываем переданную функцию для обработки клика по изображению 
+    openImagePopup(cardData);
   });
 
   return cardElement;
