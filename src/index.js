@@ -163,18 +163,29 @@ function renderCards(cards) {
   });
 }
 
+// User data function:
+
+function renderUserData(userData) {
+  profileName.textContent = userData.name;
+  profileJob.textContent = userData.about;
+  avatar.style.backgroundImage = `url(${userData.avatar})`;
+  userId = userData._id;
+}
+
 // Uploading data:
 
-Promise.all([getUserInfo(), getInitialCards()])
-  .then(([userData, cards]) => {
-    userId = userData._id;
-    profileName.textContent = userData.name;
-    profileJob.textContent = userData.about;
-    avatar.style.backgroundImage = `url(${userData.avatar})`;
-
+async function fetchData() {
+  try {
+    const [userData, cards] = await Promise.all([
+      getUserInfo(),
+      getInitialCards(),
+    ]);
+    renderUserData(userData);
     renderCards(cards);
-  })
-  .catch((err) => console.error(`Ошибка при загрузке данных: ${err}`));
+  } catch (error) {
+    console.error("Ошибка загрузки данных:", error);
+  }
+}
 
 // Sending profile editing form:
 
@@ -218,3 +229,6 @@ cardForm.addEventListener("submit", (evt) => {
 // Validation:
 
 enableValidation(validationConfig);
+
+// Загружаем данные с сервера
+fetchData();
