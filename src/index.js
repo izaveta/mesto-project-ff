@@ -27,10 +27,20 @@ const placeList = document.querySelector(".places__list");
 // Validation:
 
 import {
-  validationConfig,
   clearValidation,
   enableValidation,
 } from "./scripts/components/validation.js";
+
+//Validation config
+
+const validationConfig = {
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__button",
+  inactiveButtonClass: "popup__button_disabled",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__error_visible",
+};
 
 // API:
 
@@ -105,8 +115,10 @@ editPopupOpener.addEventListener("click", openEditProfile);
 // Opening card popup:
 
 function openAddCards() {
+  cardForm.reset();
+  clearValidation(cardForm, validationConfig);
   openModal(newCardPopup);
-}
+};
 newCardPopupOpener.addEventListener("click", openAddCards);
 
 // Opening avatar editing popup:
@@ -185,7 +197,7 @@ async function fetchData() {
   } catch (error) {
     console.error("Ошибка загрузки данных:", error);
   }
-}
+};
 
 // Sending profile editing form:
 
